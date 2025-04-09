@@ -120,15 +120,17 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: jinseok19/jinseok19.github.io            # <gh-username>/<repo>
-    repo_id: R_kgDOLyPxXw
+    repo: jinseok19/jinseok19.github.io
+    repo_id: R_kgDOOWw7Iw
     category: General
-    category_id: DIC_kwDOLyPxX84CdxXD
-    mapping: pathname                    # optional, default to 'pathname'
-    strict: 0                           # optional, default to '0'
-    input_position: bottom              # optional, default to 'bottom'
-    lang: ko                           # optional, default to the value of `site.lang`
-    reactions_enabled: 1                # optional, default to the value of `1`
+    category_id: DIC_kwDOOWw7I84CdxXD
+    mapping: pathname
+    strict: 0
+    reactions_enabled: 1
+    emit_metadata: 1
+    input_position: top
+    theme: preferred_color_scheme
+    lang: ko
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
