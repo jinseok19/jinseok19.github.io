@@ -54,17 +54,12 @@ function 수강신청(연도, 학기, 시작_시간, 시도_횟수, 수강취소
             e.preventDefault();
             loadScript();
         }
-        // Ctrl + Alt + C를 감지 (코드 보기)
-        if (e.ctrlKey && e.altKey && e.key === 'c') {
-            e.preventDefault();
-            showCode();
-        }
     }
 
     // 키보드 이벤트 리스너 추가
     document.addEventListener('keydown', checkKeyCombination);
 
-    // 콘솔에 힌트 메시지 추가 (매우 은밀하게)
+    // 콘솔에 힌트 메시지 추가
     console.log('%c이 블로그에는 숨겨진 기능이 있습니다.', 'color: #666; font-style: italic;');
-    console.log('%c키보드 단축키를 찾아보세요.', 'color: #666; font-style: italic;');
+    console.log('%cCtrl + Shift + S를 눌러보세요.', 'color: #666; font-style: italic;');
 })(); 
