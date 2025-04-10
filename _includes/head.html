@@ -100,11 +100,10 @@
   <!-- Scripts -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
   <script>
     console.log('이스터 에그 스크립트를 로드합니다...');
   </script>
-  <script src="{{ '/assets/js/easter-egg.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/easter-egg.js' | relative_url }}" defer></script>
 
   {% include js-selector.html lang=lang %}
 
