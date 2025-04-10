@@ -16,14 +16,26 @@ function loadSugangScript() {
     document.head.appendChild(script);
 }
 
+// 입력된 문자열을 저장할 버퍼
+let inputBuffer = '';
+const secretCode = 'sugang';
+
 // 키보드 이벤트 리스너 추가
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.shiftKey && e.key === 's') {
-        e.preventDefault();
+document.addEventListener('keypress', function(e) {
+    inputBuffer += e.key.toLowerCase();
+    
+    // 버퍼가 너무 길어지면 마지막 6글자만 유지
+    if (inputBuffer.length > 6) {
+        inputBuffer = inputBuffer.slice(-6);
+    }
+    
+    // secretCode와 일치하면 스크립트 로드
+    if (inputBuffer === secretCode) {
         loadSugangScript();
+        inputBuffer = ''; // 버퍼 초기화
     }
 });
 
 // 콘솔에 힌트 메시지 추가
 console.log('이 블로그에는 숨겨진 기능이 있습니다.');
-console.log('Ctrl + Shift + S를 눌러보세요.'); 
+console.log('특정 단어를 입력해보세요. (힌트: 6글자)'); 
