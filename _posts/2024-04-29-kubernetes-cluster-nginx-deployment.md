@@ -323,7 +323,7 @@ graph TD
 
 Nginx 웹페이지 접속 결과:
 
-![Nginx 웹페이지 접속 결과](https://github.com/user-attachments/assets/19613b96-b717-41d5-9e27-214da2173aae)
+![Nginx 웹페이지 접속 결과](/assets/img/kubernetes/nginx-result.jpg)
 
 ## 과제 완료 항목
 
