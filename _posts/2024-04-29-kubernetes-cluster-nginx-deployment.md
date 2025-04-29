@@ -296,7 +296,18 @@ nginx   NodePort   10.104.44.125   <none>        80:32720/TCP   15m
 
 클러스터 구조 다이어그램:
 
-![쿠버네티스 클러스터 구조](https://mermaid.ink/img/pako:eNptkc1uwjAQhF9l5UuQIH1_nBYhrjmkB9Q9kF7ANsnGBJQ_ZEUVyvvXxkQpbU-Wd-abWcsTl1azLPDMtXEepCGBpb9oeQn0gRUVlLxX2UEBX60c2NRYf5SDVShwAG-x9s3R4aTGiuR6b-_YNdagXYu8U-2r5y3Ow5IXYsH-bHnfFIm8l1gAKfGd-KBVi7aZi9xnuYzl-hFZc_pWgVakZrCSe7bUYA4aqRPBaA9RqsFZNXLBs0iyRBaL9aPIk3iWxqtVnKbpLM5gO4ZLRpuT8XR2P7xIQR1KUbCidqp2Dpe8wAF4uUFrQkYrYD4vTmAFDRxB8-LsulNDEYXoZwXP-3Fl69rBiST-6lF_-3d0-QfcFot5)
+```
+쿠버네티스 클러스터 구조:
+
+k8s-master (172.17.99.150/20)
+    |
+    |---- k8s-worker1 (172.17.99.149/20) --- Nginx Pod
+    |
+    |---- k8s-worker2 (172.17.99.153/20) --- Service (NodePort:32720)
+                                              |
+                                              |
+                                            사용자 (HTTP 요청)
+```
 
 Nginx 웹페이지 접속 결과:
 
