@@ -297,7 +297,7 @@ nginx   NodePort   10.104.44.125   <none>        80:32720/TCP   15m
 클러스터 구조 다이어그램:
 
 ```mermaid
-%%{init: {'theme': 'forest', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'Arial' }}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'Arial' }}}%%
 graph TD
     Master["<b>k8s-master</b><br/>172.17.99.150/20"] --- Worker1["<b>k8s-worker1</b><br/>172.17.99.149/20"]
     Master --- Worker2["<b>k8s-worker2</b><br/>172.17.99.153/20"]
@@ -308,11 +308,11 @@ graph TD
     User(["<b>사용자</b>"]) -- "<b>HTTP 요청</b>" --> Service
     Service -- "내부 라우팅" --> Nginx
     
-    classDef master fill:#f9f,stroke:#333,stroke-width:2px,color:black,rx:10
-    classDef worker fill:#bbf,stroke:#333,stroke-width:1px,color:black,rx:10
-    classDef pod fill:#bfb,stroke:#333,stroke-width:1px,color:black,rx:5
-    classDef service fill:#fbf,stroke:#333,stroke-width:1px,color:black,rx:5
-    classDef user fill:#fff,stroke:#333,stroke-width:1px,color:black
+    classDef master fill:#e0f0ff,stroke:#333,stroke-width:2px,color:black,rx:10
+    classDef worker fill:#e8e8ff,stroke:#333,stroke-width:1px,color:black,rx:10
+    classDef pod fill:#e0ffe0,stroke:#333,stroke-width:1px,color:black,rx:5
+    classDef service fill:#fff0ff,stroke:#333,stroke-width:1px,color:black,rx:5
+    classDef user fill:#ffffff,stroke:#333,stroke-width:1px,color:black
     
     class Master master
     class Worker1,Worker2 worker
@@ -323,7 +323,7 @@ graph TD
 
 Nginx 웹페이지 접속 결과:
 
-![Nginx 웹페이지 접속 결과](https://imgur.com/a/614J1V9)
+![Nginx 웹페이지 접속 결과](https://i.imgur.com/614J1V9.png)
 
 ## 과제 완료 항목
 
