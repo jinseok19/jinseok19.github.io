@@ -294,6 +294,25 @@ nginx   NodePort   10.104.44.125   <none>        80:32720/TCP   15m
 
 ## 이미지 추가 설명
 
+클러스터 구조 다이어그램:
+
+```mermaid
+graph TD
+    Master[k8s-master<br/>172.17.99.150/20] --- Worker1[k8s-worker1<br/>172.17.99.149/20]
+    Master --- Worker2[k8s-worker2<br/>172.17.99.153/20]
+    
+    Worker1 --- Nginx[Nginx Pod]
+    Worker2 --- Service[Service<br/>NodePort:32720]
+    
+    User((사용자)) -- "HTTP 요청" --> Service
+    
+    style Master fill:#f9f,stroke:#333,stroke-width:2px
+    style Worker1 fill:#bbf,stroke:#333,stroke-width:1px
+    style Worker2 fill:#bbf,stroke:#333,stroke-width:1px
+    style Nginx fill:#bfb,stroke:#333,stroke-width:1px
+    style Service fill:#fbf,stroke:#333,stroke-width:1px
+```
+
 Nginx 웹페이지 접속 결과:
 
 ![Nginx 웹페이지 접속 결과](/assets/img/kubernetes/nginx-result.jpg)
@@ -313,4 +332,3 @@ Nginx 웹페이지 접속 결과:
   - [x] 배포 설정 작성
   - [x] 컨테이너 실행 확인
   - [x] 접속 테스트
-```
