@@ -1,0 +1,18 @@
+graph TD
+    Master[k8s-master<br/>172.17.99.150/20] --- Worker1[k8s-worker1<br/>172.17.99.149/20]
+    Master --- Worker2[k8s-worker2<br/>172.17.99.153/20]
+    
+    Worker1 --- Nginx[Nginx Pod]
+    Worker2 --- Service[Service<br/>NodePort:32720]
+    
+    User((사용자)) -- "HTTP 요청" --> Service
+    
+    classDef master fill:#f9f,stroke:#333,stroke-width:2px
+    classDef worker fill:#bbf,stroke:#333,stroke-width:1px
+    classDef pod fill:#bfb,stroke:#333,stroke-width:1px
+    classDef service fill:#fbf,stroke:#333,stroke-width:1px
+    
+    class Master master
+    class Worker1,Worker2 worker
+    class Nginx pod
+    class Service service 

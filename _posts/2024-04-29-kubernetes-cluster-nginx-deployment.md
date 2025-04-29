@@ -296,17 +296,25 @@ nginx   NodePort   10.104.44.125   <none>        80:32720/TCP   15m
 
 클러스터 구조 다이어그램:
 
-```
-쿠버네티스 클러스터 구조:
-
-k8s-master (172.17.99.150/20)
-    |
-    |---- k8s-worker1 (172.17.99.149/20) --- Nginx Pod
-    |
-    |---- k8s-worker2 (172.17.99.153/20) --- Service (NodePort:32720)
-                                              |
-                                              |
-                                            사용자 (HTTP 요청)
+```mermaid
+graph TD
+    Master[k8s-master<br/>172.17.99.150/20] --- Worker1[k8s-worker1<br/>172.17.99.149/20]
+    Master --- Worker2[k8s-worker2<br/>172.17.99.153/20]
+    
+    Worker1 --- Nginx[Nginx Pod]
+    Worker2 --- Service[Service<br/>NodePort:32720]
+    
+    User((사용자)) -- "HTTP 요청" --> Service
+    
+    classDef master fill:#f9f,stroke:#333,stroke-width:2px
+    classDef worker fill:#bbf,stroke:#333,stroke-width:1px
+    classDef pod fill:#bfb,stroke:#333,stroke-width:1px
+    classDef service fill:#fbf,stroke:#333,stroke-width:1px
+    
+    class Master master
+    class Worker1,Worker2 worker
+    class Nginx pod
+    class Service service
 ```
 
 Nginx 웹페이지 접속 결과:
