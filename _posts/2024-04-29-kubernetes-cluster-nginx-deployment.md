@@ -296,30 +296,11 @@ nginx   NodePort   10.104.44.125   <none>        80:32720/TCP   15m
 
 클러스터 구조 다이어그램:
 
-```mermaid
-graph TD
-    Master[k8s-master<br/>172.17.99.150/20] --- Worker1[k8s-worker1<br/>172.17.99.149/20]
-    Master --- Worker2[k8s-worker2<br/>172.17.99.153/20]
-    
-    Worker1 --- Nginx[Nginx Pod]
-    Worker2 --- Service[Service<br/>NodePort:32720]
-    
-    User((사용자)) -- "HTTP 요청" --> Service
-    
-    style Master fill:#f9f,stroke:#333,stroke-width:2px
-    style Worker1 fill:#bbf,stroke:#333,stroke-width:1px
-    style Worker2 fill:#bbf,stroke:#333,stroke-width:1px
-    style Nginx fill:#bfb,stroke:#333,stroke-width:1px
-    style Service fill:#fbf,stroke:#333,stroke-width:1px
-```
+![쿠버네티스 클러스터 구조](https://mermaid.ink/img/pako:eNptkc1uwjAQhF9l5UuQIH1_nBYhrjmkB9Q9kF7ANsnGBJQ_ZEUVyvvXxkQpbU-Wd-abWcsTl1azLPDMtXEepCGBpb9oeQn0gRUVlLxX2UEBX60c2NRYf5SDVShwAG-x9s3R4aTGiuR6b-_YNdagXYu8U-2r5y3Ow5IXYsH-bHnfFIm8l1gAKfGd-KBVi7aZi9xnuYzl-hFZc_pWgVakZrCSe7bUYA4aqRPBaA9RqsFZNXLBs0iyRBaL9aPIk3iWxqtVnKbpLM5gO4ZLRpuT8XR2P7xIQR1KUbCidqp2Dpe8wAF4uUFrQkYrYD4vTmAFDRxB8-LsulNDEYXoZwXP-3Fl69rBiST-6lF_-3d0-QfcFot5)
 
 Nginx 웹페이지 접속 결과:
 
 ![Nginx 웹페이지 접속 결과](/assets/img/kubernetes/nginx-result.jpg)
-
-클러스터 노드 상태 확인:
-
-![클러스터 노드 상태](/assets/img/kubernetes/cluster-nodes.jpg)
 
 ## 과제 완료 항목
 

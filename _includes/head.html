@@ -100,6 +100,19 @@
   <!-- Scripts -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
+
+  <!-- Mermaid 다이어그램 지원 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        flowchart: { useMaxWidth: false }
+      });
+    });
+  </script>
+
   {% include js-selector.html lang=lang %}
 
   {% if jekyll.environment == 'production' %}
