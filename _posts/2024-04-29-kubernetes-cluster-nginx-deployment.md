@@ -323,7 +323,7 @@ graph TD
 
 Nginx 웹페이지 접속 결과:
 
-![Nginx 웹페이지 접속 결과](https://i.imgur.com/614J1V9.png)
+![Nginx 웹페이지 접속 결과](https://imgur.com/a/nginx-img-614J1V9)
 
 ## 과제 완료 항목
 
