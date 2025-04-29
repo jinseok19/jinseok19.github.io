@@ -323,7 +323,7 @@ graph TD
 
 Nginx 웹페이지 접속 결과:
 
-![Nginx 웹페이지 접속 결과](/assets/img/kubernetes/nginx-result.jpg)
+![Nginx 웹페이지 접속 결과]({{ site.baseurl }}/assets/img/kubernetes/nginx-result.jpg)
 
 ## 과제 완료 항목
 
