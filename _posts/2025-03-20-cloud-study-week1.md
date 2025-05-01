@@ -17,16 +17,16 @@ comments: true
 - **설치 참고 자료**: [VirtualBox 공식 홈페이지](https://www.virtualbox.org/wiki/Downloads) 또는 [Phantom님 블로그](https://phantom.tistory.com/6)
 - **확장 팩 설치**: VirtualBox 설치 후 [Extension Pack](https://www.virtualbox.org/wiki/Downloads)을 다운로드하여 설치하면 USB 2.0/3.0 지원, 디스크 암호화 등 유용한 추가 기능을 사용할 수 있습니다.
   - VirtualBox 실행 > `파일` > `도구` > `확장 팩 관리자` (단축키 Ctrl+T) > `설치` 버튼 클릭 후 다운로드한 확장 팩 파일 선택
-  ![VirtualBox 확장 팩 관리자](https://github.com/user-attachments/assets/a7f3b7a4-0e99-44bc-9b4a-6d88740b05a1) <!-- 이미지 URL 교체 필요 -->
+  ![VirtualBox 확장 팩 관리자](/assets/img/virtualbox/vbox-extension-pack.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
 
 ### 2. VirtualBox 네트워크 모드 이해하기
 
 VirtualBox는 가상머신(VM)이 네트워크와 상호작용하는 방식을 결정하는 여러 네트워크 모드를 제공합니다. 각 모드를 이해하는 것은 목적에 맞는 가상 환경을 구축하는 데 중요합니다.
 
-![VirtualBox 네트워크 설정](https://github.com/user-attachments/assets/e65c1e9b-8f8b-428e-9c91-d61121851e0d) <!-- 이미지 URL 교체 필요 -->
+![VirtualBox 네트워크 설정](/assets/img/virtualbox/vbox-network-types.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
 
 - **NAT (Network Address Translation)**
-  ![NAT 모드 설명](https://github.com/user-attachments/assets/27e6f3f5-3e1f-40f0-a4d5-1a682239a9e3) <!-- 이미지 URL 교체 필요 -->
+  ![NAT 모드 설명](/assets/img/virtualbox/nat-mode.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
   - **개념**: VM이 호스트 PC의 IP 주소를 공유하며, 마치 공유기 뒤에 있는 컴퓨터처럼 작동합니다. 호스트 PC가 인터넷에 연결되어 있다면 VM도 별도 설정 없이 인터넷 사용이 가능합니다.
   - **IP 할당**: 각 VM은 일반적으로 `10.0.2.15` IP 주소를 받으며, 게이트웨이는 `10.0.2.2`입니다.
   - **특징**: 외부에서 VM으로 직접 접근이 불가능하며, VM 간 통신도 기본적으로는 불가능합니다. (포트 포워딩으로 특정 포트 개방 가능)
@@ -35,13 +35,13 @@ VirtualBox는 가상머신(VM)이 네트워크와 상호작용하는 방식을 �
   - **사용 사례**: 단순히 VM에서 인터넷 사용만 필요한 경우, 보안이 중요한 개발 환경.
 
 - **NAT Network**
-  ![NAT Network 모드 설명](https://github.com/user-attachments/assets/1733f7a2-4c9f-4014-920a-b145d1243b7c) <!-- 이미지 URL 교체 필요 -->
+  ![NAT Network 모드 설명](/assets/img/virtualbox/nat-network-mode.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
   - **개념**: NAT 모드와 유사하지만, 같은 'NAT 네트워크' 그룹에 속한 VM들끼리는 서로 통신할 수 있습니다.
   - **특징**: 그룹 내 VM 간 통신 가능, 외부로부터의 접근은 차단.
   - **사용 사례**: 여러 VM이 서로 통신해야 하지만 외부 네트워크와는 분리하고 싶은 테스트 환경.
 
 - **Bridged (브릿지) 모드**
-  ![브릿지 모드 설명](https://github.com/user-attachments/assets/e11f7a0f-4e3f-4074-8f9d-5a7b6f0e3b3a) <!-- 이미지 URL 교체 필요 -->
+  ![브릿지 모드 설명](/assets/img/virtualbox/bridged-mode.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
   - **개념**: VM이 호스트 PC와 동일한 네트워크에 연결된 독립적인 컴퓨터처럼 작동합니다. 호스트가 연결된 네트워크의 DHCP 서버로부터 직접 IP 주소를 할당받습니다.
   - **특징**: 호스트와 동일한 네트워크 대역 사용, 별도 설정 없이 VM에 직접 접근 가능 (예: SSH).
   - **장점**: 네트워크 설정의 유연성, VM을 실제 서버처럼 운영 가능.
@@ -49,7 +49,7 @@ VirtualBox는 가상머신(VM)이 네트워크와 상호작용하는 방식을 �
   - **사용 사례**: VM으로 웹 서버, 파일 서버 등을 운영할 때, 네트워크 내 다른 기기와 VM 간 통신이 필요할 때.
 
 - **Internal Network (내부 네트워크)**
-  ![내부 네트워크 모드 설명](https://github.com/user-attachments/assets/d1d4b7a0-4e2f-4e8d-8c8b-8a5c3e5b0f0f) <!-- 이미지 URL 교체 필요 -->
+  ![내부 네트워크 모드 설명](/assets/img/virtualbox/internal-network-mode.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
   - **개념**: 외부 네트워크는 물론 호스트 PC와도 완전히 분리된, VM들만을 위한 가상의 내부 네트워크를 생성합니다.
   - **특징**: 동일한 '내부 네트워크 이름'을 가진 VM끼리만 통신 가능, 인터넷 접속 불가.
   - **장점**: 완벽한 네트워크 격리로 보안성이 매우 높음.
@@ -57,7 +57,7 @@ VirtualBox는 가상머신(VM)이 네트워크와 상호작용하는 방식을 �
   - **사용 사례**: 보안 취약점 테스트, 악성코드 분석 등 완전히 격리된 환경이 필요할 때.
 
 - **Host-only Network (호스트 전용 네트워크)**
-  ![호스트 전용 네트워크 모드 설명](https://github.com/user-attachments/assets/f0d9b7a4-4e1f-4f8d-8c7b-8a6c3e2b0f1f) <!-- 이미지 URL 교체 필요 -->
+  ![호스트 전용 네트워크 모드 설명](/assets/img/virtualbox/host-only-mode.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
   - **개념**: 호스트 PC와 해당 네트워크에 연결된 VM들만 통신할 수 있는 폐쇄적인 네트워크입니다.
   - **특징**: 호스트-VM 간 통신 가능, VM 간 통신 가능, 인터넷 접속은 기본적으로 불가 (호스트의 인터넷 연결 공유 설정 필요).
   - **장점**: 호스트와 VM 간 안전하고 격리된 통신 환경 제공.
@@ -65,7 +65,7 @@ VirtualBox는 가상머신(VM)이 네트워크와 상호작용하는 방식을 �
   - **사용 사례**: 로컬 개발 환경 구축, 호스트와 VM 간 파일 공유 및 테스트.
 
 - **Generic Driver (일반 드라이버)**
-  ![일반 드라이버 모드 설명](https://github.com/user-attachments/assets/17e8f7a2-4c8f-4014-920a-b145d1243b7c) <!-- 이미지 URL 교체 필요 -->
+  ![일반 드라이버 모드 설명](/assets/img/virtualbox/generic-driver-mode.png) <!-- 이미지 파일 확인 및 경로 수정 필요 -->
   - **개념**: 사용자가 직접 만든 드라이버나 특수한 네트워크 프로토콜(UDP 터널링, VDE 등)을 사용할 때 선택합니다.
   - **사용 사례**: 표준 모드로는 구현할 수 없는 복잡하거나 특수한 네트워크 구성이 필요한 고급 사용자.
 
@@ -88,7 +88,7 @@ VirtualBox는 가상머신(VM)이 네트워크와 상호작용하는 방식을 �
 스터디 실습으로 Ubuntu Server 22.04.5 LTS 버전을 VirtualBox에 설치했습니다.
 
 - **VM 사양**: CPU 4코어 / 메모리 8GB / 디스크 50GB
-- **사용자 계정**: `jinseok` / `jinseok02!` (보안상 실제 환경에서는 더 복잡한 비밀번호 사용 권장)
+- **사용자 계정**: `jinseok` / '********' (보안상 실제 환경에서는 더 복잡한 비밀번호 사용 권장)
 - **설치 가이드 참고**: [DailyLifeCoding님 블로그: VirtualBox에 Ubuntu Server 설치하기](https://velog.io/@dailylifecoding/installing-ubuntu-server-on-virtual-box)
 
 **고정 IP 설정:**
